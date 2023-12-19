@@ -1,9 +1,13 @@
 package com.uiopa.frspringboot.web;
 
 
+import com.uiopa.frspringboot.config.auth.SecurityConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -13,12 +17,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 // 테스트할 컨트롤러를 지정하고 필요한 빈들을 자동으로 등록합니다.
-@WebMvcTest(HelloController.class)
+@WebMvcTest(value = HelloController.class,
+        excludeFilters = { // 스캔 대상에서 security config 제거
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+        }
+)
 public class HelloControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
+    @WithMockUser(roles="USER")
     @Test
     public void helloController_테스트() throws Exception {
         String hello = "hello";
@@ -30,6 +39,7 @@ public class HelloControllerTest {
                 .andReturn();
     }
 
+    @WithMockUser(roles="USER")
     @Test
     public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
