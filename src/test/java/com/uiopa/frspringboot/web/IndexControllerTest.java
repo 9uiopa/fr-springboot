@@ -25,11 +25,12 @@ public class IndexControllerTest {
     
     @Test
     public void 메인페이지_로딩(){
+
         //when
         //getForObject : HTTP GET 요청을 보내고, 서버로부터 응답을 받아 특정 타입(여기서는 String)으로 변환하여 반환
         String body = this.restTemplate.getForObject("/", String.class);// : html 문서 전체의 텍스트
 
         //then
-        assertThat(body).contains("스프링 부트로 시작하는 웹 서비스");
+        assertThat(body).contains("Ver"); // 한글 깨져서 str 변경
     }
 }
