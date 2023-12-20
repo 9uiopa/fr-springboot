@@ -5,8 +5,6 @@ import com.uiopa.frspringboot.domain.posts.Posts;
 import com.uiopa.frspringboot.domain.posts.PostsRepository;
 import com.uiopa.frspringboot.web.dto.PostsSaveRequestDto;
 import com.uiopa.frspringboot.web.dto.PostsUpdateRequestDto;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
