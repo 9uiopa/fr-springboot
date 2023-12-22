@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.9uiopa'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'+new Date().format("yyyyMMddHHmmss")
 
 java {
 	sourceCompatibility = '11'
@@ -32,6 +32,7 @@ dependencies {
 	implementation 'org.projectlombok:lombok:1.18.22'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
 	// 테스트 환경용
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 	testImplementation 'org.projectlombok:lombok:1.18.22'

@@ -9,7 +9,5 @@ public class FrSpringbootApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FrSpringbootApplication.class, args);
-
 	}
-
 }
