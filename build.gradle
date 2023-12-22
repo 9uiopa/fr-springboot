@@ -13,11 +13,7 @@ java {
 
 repositories {
 	mavenCentral()
-}
-
-// plain.jar 생성 방지
-jar {
-	enabled = false
+	jcenter()
 }
 
 dependencies {
@@ -47,6 +43,7 @@ dependencies {
 
 }
 
-tasks.named('test') {
+
+test {
 	useJUnitPlatform()
 }
