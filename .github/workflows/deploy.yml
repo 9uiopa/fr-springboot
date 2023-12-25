@@ -9,7 +9,7 @@ on:
   release:
     types: [push] # (1) push시 자동으로 실행됩니다.
   push:
-    branches: [main] # (2) main 브랜치에서 동작합니다.
+    branches: [master] # (2) main 브랜치에서 동작합니다.
   workflow_dispatch: # (3) 수동으로도 실행이 가능힙니다.
 
 
@@ -50,7 +50,7 @@ jobs:
       shell: bash
 
     - name: Make zip file
-      run: zip -r ./$PROJECT_NAME.zip .         # (12)
+      run: zip -r ./$PROJECT_NAME.zip .         # (12) 프로젝트 이름으로 해당 폴더(아카이브 파일)를 모두 압축시킵니다. (빌드된 전체 폴더)
       shell: bash
 
     - name: Configure AWS credentials
