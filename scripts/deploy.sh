@@ -1,3 +1,5 @@
+#ec2 step2 환경에서 실행될 스크립트
+
 REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=fr-springboot
 
