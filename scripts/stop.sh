@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+#실제 파일의 경로를 반환
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
+#source = import
 source ${ABSDIR}/profile.sh
 
 IDLE_PORT=$(find_idle_port)
