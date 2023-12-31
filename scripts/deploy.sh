@@ -1,3 +1,4 @@
+#!/bin/bash
 #ec2 step2 환경에서 실행될 스크립트
 
 REPOSITORY=/home/ec2-user/app/step2
@@ -30,6 +31,8 @@ chmod +x $JAR_NAME
 source ~/.bashrc
 
 echo "> $JAR_NAME 실행"
+
+ # profile 활성화 부분은 내가 짠 코드라 개선 필요할 수 있음.
 nohup java -jar \
   -Dspring.config.location=classpath:/application.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
   -Dspring.profiles.active=real,oauth,real-db \
