@@ -41,4 +41,12 @@ public class IndexController {
 
         return "posts-update";
     }
+
+    @GetMapping("/posts/{id}")
+    public String postsRead(@PathVariable Long id,Model model){
+        PostsResponseDto dto = postsService.findById(id);
+        model.addAttribute("posts", dto);
+        return "posts-read";
+    }
+
 }
