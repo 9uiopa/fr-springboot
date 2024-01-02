@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+#start.sh의 경로 획득
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
 source ${ABSDIR}/profile.sh
