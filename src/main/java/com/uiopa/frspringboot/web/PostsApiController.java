@@ -6,6 +6,7 @@ import com.uiopa.frspringboot.web.dto.PostsResponseDto;
 import com.uiopa.frspringboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -18,8 +19,10 @@ public class PostsApiController {
         return postsService.save(requestDto);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto ){
+
         return postsService.update(id, requestDto );
 
     }
